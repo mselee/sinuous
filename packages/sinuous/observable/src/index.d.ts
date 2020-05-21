@@ -24,6 +24,8 @@ export function isListening(): boolean;
 export function root<T>(fn: () => T): T;
 export function sample<T>(fn: () => T): T;
 export function transaction<T>(fn: () => T): T;
+export function on<T>(ev: () => any, fn: () => T) : () => T;
+export function on<T>(ev: () => any, fn: (v: T) => T, seed: T, onchanges?: boolean) : () => T;
 
 type CleanupFn = () => any;
 export function cleanup(fn: CleanupFn): CleanupFn;
